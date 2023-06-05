@@ -1,0 +1,792 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    max-width: 1110px;
+    margin: 0 auto;
+}
+
+/* Добавляем конфигурации для всех изображений */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Обнуляем отступы для любых текстов */
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Базовые цвета */
+:root {
+    --accent-color: #F7654A;
+    --dark-color: #000000;
+    --gray-color: #999999;
+    --white-color: #FFFFFF; 
+}
+
+/* Форматирования всех присутствующих текстов */
+.text-h2 {
+    font-size: 36px;
+    font-weight: 500;
+    font-family: 'Oswald', sans-serif;
+}
+
+.text-h3 {
+    font-size: 24px;
+    font-weight: 500;
+    font-family: 'Oswald', sans-serif;
+}
+
+.text-h4 {
+    font-size: 21px;
+    font-weight: 500;
+    font-family: 'Oswald', sans-serif;
+}
+
+.text-p {
+    font-size: 16px;
+    font-family:'Open Sans', sans-serif;
+}
+
+.text-p-reviews {
+    font-size: 14px;
+    font-family:'Open Sans', sans-serif;
+    line-height: 21px;
+}
+
+.header {
+    background-image: url(../images/top_bg_img.jpg);
+    background-repeat: no-repeat;
+    max-width: 1920px;
+    height: 740px;
+}
+
+/* верхние иконки сайта */
+.icons {
+    display: flex;
+    justify-content: space-between;
+    margin: 0px auto 112px;
+}
+
+
+.logo {
+    margin-top: 20px; 
+}
+
+/* кнопка бургер меню */
+.burger {
+    border-width: 0px;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    margin-top: 30px;
+    background-image: url(../images/Rectangle.svg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.burger_area {
+    width: 21px;
+    height: 17px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.burger_area span {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    transform: scale(1);
+}
+
+.burger_area::before, .burger_area::after {
+    content: '';
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    position: absolute;
+    transition: all 0.3s ease 0s;
+}
+
+.burger_area::before { top: 0 }
+.burger_area::after { bottom: 0 }
+
+.burger_area.active span {
+    transform: scale(0);
+}
+
+.burger_area.active::before {
+    top: 51%;
+    transform: rotate(-45deg) translate(3%, -50%);
+}
+
+.burger_area.active::after {
+    bottom: 51%;
+    transform: rotate(45deg) translate(3%, 50%);
+}
+
+
+/* первый и второй тексты */
+.header div.main_text {
+    max-width: 743px;
+    margin: 0px auto 18px;
+}
+
+.header div.second_text {
+    max-width: 743px;
+    margin: 0px auto;
+}
+
+.header div.main_text h1 {
+    line-height: 94.85px;
+    font-size: 64px;
+    font-family: 'Oswald';
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.header div.second_text h4 {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+/* ---------------------- */
+
+.about {
+    min-height: 1080px;
+    position: relative;
+}
+
+/* блок под главной картинкой */
+.info {
+    position: absolute;
+    background-color: #F7F7F7;
+    /*background-color: #36585a;*/
+    top: -150px;
+    max-width: 1110px;
+    width: 100%;
+    min-height: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 57px 130px;
+    margin-bottom: 100px;
+}
+
+.about_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 30px;
+    justify-items: center;
+}
+
+.about_grid_items {
+    width: 190px;
+    text-align: center;
+}
+
+.about_h4 {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 72px;
+    line-height: 107px;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    margin-bottom: 2px;
+}
+
+.about_h5 {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 53px;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0);
+    margin-bottom: 2px;
+}
+
+.about_p {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: var(--gray-color);
+}
+/* ---------------------- */
+
+
+/* Раздел с Нашими проектами */
+
+.projects {
+    padding-top: 250px;
+}
+
+.project_flex {
+    display: flex;
+}
+
+/* Добавляем отступы между элементами */
+.project_flex-item {
+    max-width: 350px;
+    margin-right: 30px;
+}
+
+/* Убираем отступы у последнего элемента */
+.project_flex-item:last-child {
+    margin: 0;
+}
+
+.project_h2 {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 53px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+
+.project_img {
+    margin-bottom: 45px;
+}
+
+.project_rectangle {
+    width: 55px;
+    height: 6px;
+    background-color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+
+.project_h3 {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 13px;
+    color: var(--dark-color);
+}
+
+.project_p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: var(--gray-color);
+}
+/* ---------------------- */
+
+/* Раздел с вашим запросом*/
+
+#request_rectangle-2 {
+    margin-bottom: 100px;
+}
+
+.request_rectangle {
+    width: 100%;
+    height: 181px;
+    background-color: var(--accent-color);
+    margin-bottom: 152px;
+}
+
+.request_flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 34px;
+}
+
+.request_h2, .request_h3 {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--white-color);
+}
+
+.request_h2 {
+    font-size: 48px;
+    line-height: 71px;
+}
+
+.request_h3 {
+    font-size: 24px;
+    line-height: 36px;
+}
+
+/*Кнопка*/
+.request_button {
+    padding: 0;
+    margin-top: 20px;
+    border: none;
+    width: 175px;
+    height: 49px;
+    background-color: var(--white-color);
+}
+
+.request_button_flex {
+    display: flex;
+    justify-content: center;
+}
+
+.request_button_h5 {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.05em;
+    padding-left: 15px;
+}
+
+/*-------------------*/
+
+/*Раздел с нашими занятиями*/
+
+.our_function {
+    margin-bottom: 140px;
+}
+
+.our_function_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.our_function_grid-item {
+    width: 100%;
+    min-height: 250px;
+    background-color: #F7F7F7;
+    border: solid red 2px;
+}
+
+.our_function_grid-item_img {
+    margin: 45px auto 23px auto;
+}
+
+.our_function_h4 {
+    margin: auto;
+    width: 172px;
+    height: 62px;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 31px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: rgb(0, 0, 0);
+}
+
+.our_function_h2 {
+    text-align: center;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 53px;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0);
+    margin-bottom: 66px;
+}
+
+/*-------------------*/
+/* при экране меньше 1280px */
+@media screen and (max-width: 1280px) {
+    .about_grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .projects {
+        padding-top: 449px;
+    }
+
+    .about {
+        padding: 0 15px;
+        margin-bottom: 146px;
+    }
+
+    .request_flex {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .our_function_grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 15px;
+    }
+
+}
+/*-------------------*/
+/* при экране меньше 760px */
+@media screen and (max-width: 760px) {
+    .about_grid {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    .projects {
+        padding-top: 831px;
+    }
+
+    .project_flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project_flex-item:last-child {
+        margin-right: 30px;
+    }
+
+    .request_h2 {
+        font-size: 24px;
+    }
+
+    .request_h3 {
+        font-size: 12px;
+    }
+
+    .our_function_grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+/*Раздел с кучей фотографий*/
+.many_img_container {
+    width: 100%;
+    height: 814px;
+    background-image: url(/images/many_imgs.jpg);
+    margin-bottom: 150px;
+
+}
+/*-------------------*/
+
+/*Раздел с ответами на вопросы*/
+.questions-item {
+    margin-bottom: 32px;
+}
+
+.questions_container {
+    max-width: 730px;
+    max-height: 452px;
+    margin: 150px auto 150px 405px;
+}
+
+.questions_h2 {
+    text-align: right;
+    font-style: normal;
+    line-height: 53px;
+    text-transform: uppercase;
+    padding-right: 15px;
+    margin-bottom: 48px;
+}
+
+.questions_h3 {
+    font-style: normal;
+    line-height: 36px;
+    color: var(--accent-color);
+    cursor: pointer;
+}
+
+.questions_p {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: var(--gray-color);
+    margin-top: 26px;
+    margin-bottom: 5px;
+}
+
+.questions_icon {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.questions_h3.close + .questions_p {
+    display: none;
+}
+
+.questions_h3::before {
+    content: "";
+    display: inline-flex;
+    width: 15px;
+    height: 15px;
+    background-image: url(/images/questions_img.svg);
+    background-repeat: no-repeat;
+    transition: all 0.5s ease 0s;
+    margin-right: 15px;
+}
+
+.questions_h3.close::before {
+    transform: rotate(90deg);
+}
+
+/*-------------------*/
+/* при экране меньше 1280px */
+@media screen and (max-width: 1280px) {
+    .questions_h2 {
+        text-align: center;
+    }
+
+    .questions_container {
+        margin-left: auto;
+    }
+}
+/*-------------------*/
+
+/* при экране меньше 760px */
+@media screen and (max-width: 760px) {
+    .questions_container {
+        padding: 0 15px 0;
+    }
+}
+/*-------------------*/
+
+/* Раздел с партнерами*/
+.partners_container {
+    width: 100%;
+    min-height: 364px;
+    background-color: #404149;
+    margin-bottom: 150px;
+}
+
+.partners_h2 {
+    text-align: center;
+    padding-top: 100px;
+    font-style: normal;
+    line-height: 53px;
+    text-transform: uppercase;
+    color: var(--white-color);
+}
+
+.partners_flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 49px 406px 0 406px;
+}
+/*-------------------*/
+/* при экране меньше 1750px */
+@media screen and (max-width: 1750px) {
+    .partners_flex {
+        justify-content: space-around;
+        padding: 49px 0 0 0;
+    }
+}
+
+
+/* при экране меньше 950px */
+@media screen and (max-width: 950px) {
+    .partners_flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .partners_flex-item {
+        width: 170px;
+        height: 61px;
+    }
+
+}
+/*-------------------*/
+/* Раздел с отзывами*/
+.reviews .container {
+    margin-bottom: 145px;
+}
+
+.reviews_h2 {
+    text-align: center;
+    font-style: normal;
+    line-height: 53px;
+    text-transform: uppercase;
+    color: var(--dark-color);
+    margin-bottom: 75px;
+}
+
+.reviews_flex-item_h4 {
+    line-height: 31px;
+    letter-spacing: 0.02em;
+}
+
+.reviews_flex-item_span {
+    color: var(--accent-color);
+}
+
+.reviews_flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.reviews_flex_rectangle {
+    border: solid red 2px;
+    max-width: 350px;
+    min-height: 259px;
+    margin-bottom: 17px;
+}
+
+.reviews_flex-item_img {
+    padding-top: 17px;
+    padding-left: 28px;
+}
+
+.reviews_flex-item_p {
+    padding: 20px 28px;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+/* при экране меньше 1280px */
+@media screen and (max-width: 1280px) {
+    .reviews_flex {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .reviews_flex-item {
+        padding-bottom: 25px;
+        padding-right: 25px;
+    }
+}
+/*-------------------*/
+
+/* при экране меньше px */
+@media screen and (max-width: 700px) {
+    .reviews_flex-item {
+        padding-right: 0;
+    }
+}
+/*-------------------*/
+
+
+/* Раздел с контактами*/
+.contacts {
+    margin-bottom: 150px;
+}
+
+.contacts_h2 {
+    text-align: center;
+    margin-bottom: 59px;
+}
+
+.contacts_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 255px);
+    column-gap: 30px;
+}
+
+.contacts_grid-item:last-child {
+    color: var(--accent-color);
+}
+
+.contacts_icon {
+    margin-bottom: 18px;
+}
+
+#contacts_icon-1 {
+    padding-left: 109px;
+}
+
+#contacts_icon-2 {
+    padding-left: 103px;
+}
+
+#contacts_icon-3 {
+    padding-left: 104px;
+}
+
+#contacts_icon-4 {
+    padding-top: 6px;
+    padding-left: 103px;
+    margin-bottom: 25px;
+}
+
+.contacts_h3_top, .contacts_h3_bottom {
+    text-align: center;
+}
+
+.contacts_h3_top {
+    margin-bottom: 17px;
+    color: var(--gray-color);
+}
+
+/* при экране меньше 1150px */
+@media screen and (max-width: 1150px) {
+    .contacts_grid {
+        grid-template-columns: repeat(2, 255px);
+        gap: 30px;
+        justify-content: center;
+    }
+
+}
+/*-------------------*/
+
+/* при экране меньше 580px */
+@media screen and (max-width: 580px) {
+    .contacts_grid {
+        grid-template-columns: repeat(1, 255px);
+        gap: 30px;
+    }
+}
+/*-------------------*/
+
+
+/* Footer сайта*/
+
+.footer {
+    min-height: 82px;
+    background-color: #404149;
+}
+
+.footer_flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer_flex-item_p {
+    padding-top: 29px;
+    font-size: 16px;
+    line-height: 22px;
+}
+/* при экране меньше 1350px */
+@media screen and (max-width: 1350px) {
+    .footer_flex {
+        justify-content: space-around;
+    }
+}
+/*-------------------*/
+
+/* при экране меньше 700px */
+@media screen and (max-width: 700px) {
+
+}
+/*-------------------*/
